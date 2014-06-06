@@ -1,6 +1,6 @@
 {
-  "name": "grunt-usemin",
-  "version": "2.1.1",
+  "name": "grunt-mvcmin",
+  "version": "0.0.1",
   "description": "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views).",
   "keywords": [
     "gruntplugin",
@@ -8,15 +8,20 @@
     "yeoman",
     "html",
     "css",
-    "optimize"
+    "optimize",
+    "aspmvc"
   ],
-  "homepage": "https://github.com/yeoman/grunt-usemin",
-  "bugs": "https://github.com/yeoman/grunt-usemin/issues",
-  "author": "The Yeoman Team",
+  "homepage": "https://github.com/teq0/grunt-mvcmin",
+  "bugs": {
+    "url": "https://github.com/teq0/grunt-mvcmin/issues"
+  },
+  "author": {
+    "name": "t.eq.0"
+  },
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yeoman/grunt-usemin.git"
+    "url": "git://github.com/teq0/grunt-mvcmin.git"
   },
   "scripts": {
     "test": "grunt"
@@ -30,7 +35,7 @@
     "mkdirp": "~0.3.5",
     "rimraf": "~2.1.4",
     "grunt-contrib-jshint": "~0.4.1",
-    "grunt-mocha-cli": "~1.0.5"
+    "grunt-mocha-cli": "~1.8.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"

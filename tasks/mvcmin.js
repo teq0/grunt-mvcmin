@@ -44,7 +44,7 @@ var getLocator = function (grunt, options) {
 };
 
 //
-// ### Usemin
+// ### Mvcmin
 
 // Replaces references to non-optimized scripts or stylesheets
 // into a set of HTML files (or any templates/views).
@@ -59,7 +59,7 @@ var getLocator = function (grunt, options) {
 // * Use a file dictionary during build process and rev task to
 // store each optimized assets and their associated sha1.
 //
-// #### Usemin-handler
+// #### Mvcmin-handler
 //
 // A special task which uses the build block HTML comments in markup to
 // get back the list of files to handle, and initialize the grunt configuration
@@ -96,8 +96,8 @@ module.exports = function (grunt) {
   var ConfigWriter = require('../lib/configwriter');
   var _ = grunt.util._;
 
-  grunt.registerMultiTask('usemin', 'Replaces references to non-minified scripts / stylesheets', function () {
-    var debug = require('debug')('usemin:usemin');
+  grunt.registerMultiTask('mvcmin', 'Replaces references to non-minified scripts / stylesheets', function () {
+    var debug = require('debug')('mvcmin:mvcmin');
     var options = this.options({
       type: this.target
     });
@@ -137,9 +137,10 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerMultiTask('useminPrepare', 'Using HTML markup as the primary source of information', function () {
+  grunt.registerMultiTask('mvcminPrepare', 'Using HTML markup as the primary source of information', function () {
     var options = this.options();
     // collect files
+    var files = grunt.file.expand({filter: 'isFile'}, this.data);
     var dest = options.dest || 'dist';
     var staging = options.staging || '.tmp';
     var root = options.root;
@@ -148,7 +149,7 @@ module.exports = function (grunt) {
       .writeln('Going through ' + grunt.log.wordlist(this.filesSrc) + ' to update the config')
       .writeln('Looking for build script HTML comment blocks');
 
-    var flow = getFlowFromConfig(grunt.config('useminPrepare'), this.target);
+    var flow = getFlowFromConfig(grunt.config('mvcminPrepare'), this.target);
 
     var c = new ConfigWriter( flow, {root: root, dest: dest, staging: staging} );
 
